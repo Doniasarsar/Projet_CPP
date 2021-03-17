@@ -27,16 +27,16 @@ CONFIG += c++11
 SOURCES += \
     facture.cpp \
         main.cpp \
-        mainwindow.cpp \
-    connection.cpp
+    connection.cpp \
+    mainwindow.cpp
 
 HEADERS += \
     facture.h \
-        mainwindow.h \
-    connection.h
+    connection.h \
+    mainwindow.h
 
 FORMS += \
-        mainwindow.ui
+    mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

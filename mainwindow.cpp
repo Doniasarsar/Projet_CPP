@@ -3,6 +3,7 @@
 #include "facture.h"
 #include <QMessageBox>
 #include <QPixmap>
+#include <QIntValidator>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -13,6 +14,10 @@ MainWindow::MainWindow(QWidget *parent) :
     QPixmap pix("C:/Users/waelk/OneDrive/Bureau/C++/PROJET/MyProj/img/ajout.png");
     ui->label_4->setPixmap(pix.scaled(100,100,Qt::KeepAspectRatio));
     /*/////////////////////////////////////////////////////////////////////////////*/
+    /*////////////////////////CONTROLE DE SAISIE///////////////////////////////////*/
+    ui->le_id_f->setValidator( new QIntValidator(0, 999999999, this));
+    /*/////////////////////////////////////////////////////////////////////////////*/
+    ui->tab_fact->setModel(F.afficher());
 }
 
 MainWindow::~MainWindow()

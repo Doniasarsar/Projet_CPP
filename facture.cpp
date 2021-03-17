@@ -1,6 +1,7 @@
 #include "facture.h"
 #include <QSqlQuery>
 #include <QDebug>
+#include <QObject>
 
 Facture::Facture()
 {
@@ -42,4 +43,12 @@ bool Facture::ajouter(){
           query.exec();
     return test;
 }
+QSqlQueryModel* Facture::afficher(){
+    QSqlQueryModel* model=new QSqlQueryModel();
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
 
+          model->setQuery("SELECT* FROM FACTURES");
+          model->setHeaderData(1, Qt::Horizontal, QObject::tr("Date de facture"));
+          model->setHeaderData(2, Qt::Horizontal, QObject::tr("Total TTC"));
+          return model;
+}

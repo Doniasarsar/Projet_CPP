@@ -1,6 +1,8 @@
 #ifndef FACTURE_H
 #define FACTURE_H
 #include <QString>
+#include <QSqlQueryModel>
+
 
 class Facture
 {
@@ -14,6 +16,7 @@ public:
     void setdate_f(QString);
     void setttc_f(QString);
     bool ajouter();
+    QSqlQueryModel* afficher();
 private:
     int id_f;
     QString date_f,ttc_f;
