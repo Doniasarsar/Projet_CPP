@@ -9,19 +9,24 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+
     ui->setupUi(this);
+
     /*/////////////////////////////AJOUTTER IMAGE/////////////////////////////////////*/
     QPixmap pix("C:/Users/waelk/OneDrive/Bureau/C++/PROJET/MyProj/img/ajout.png");
     ui->label_4->setPixmap(pix.scaled(100,100,Qt::KeepAspectRatio));
+
     /*/////////////////////////////////////////////////////////////////////////////*/
     /*////////////////////////CONTROLE DE SAISIE///////////////////////////////////*/
     ui->le_id_f->setValidator( new QIntValidator(0, 999999999, this));
     /*/////////////////////////////////////////////////////////////////////////////*/
     ui->tab_fact->setModel(F.afficher());
+
 }
 
 MainWindow::~MainWindow()
 {
+
     delete ui;
 }
 
@@ -38,10 +43,17 @@ void MainWindow::on_pb_ajouter_clicked()
         QMessageBox::information(nullptr, QObject::tr("OK"),
                                  QObject::tr("Ajout effectué\n"
                                  "Click Cancel to exit."),QMessageBox::Cancel);
+
     }else{
         QMessageBox::critical(nullptr, QObject::tr("NOT OK"),
                               QObject::tr("Ajout non effectué\n"
                                  "Click Cancel to exit."),QMessageBox::Cancel);
 
     }
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    ui->tab_fact->setModel(F.afficher());
+
 }

@@ -1,6 +1,7 @@
 #ifndef FACTURE_H
 #define FACTURE_H
 #include <QString>
+#include <QSqlQuery>
 #include <QSqlQueryModel>
 
 
