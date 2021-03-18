@@ -18,6 +18,8 @@ public:
     void setttc_f(QString);
     bool ajouter();
     QSqlQueryModel* afficher();
+    bool supprimer(int);
+
 private:
     int id_f;
     QString date_f,ttc_f;

@@ -6,6 +6,8 @@
 #include<QSqlQueryModel>
 #include <stdlib.h>
 #include <facture.h>
+#include <QTableView>
+
 
 namespace Ui {
 class MainWindow;
@@ -24,9 +26,11 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_supp_clicked();
+
 private:
     Ui::MainWindow *ui;
-    Facture F;
+    Facture Ftemp;
 };
 
 #endif // MAINWINDOW_H

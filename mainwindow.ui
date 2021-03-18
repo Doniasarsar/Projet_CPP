@@ -27,7 +27,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
@@ -51,9 +51,9 @@
        </property>
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>30</x>
          <y>130</y>
-         <width>511</width>
+         <width>481</width>
          <height>271</height>
         </rect>
        </property>
@@ -113,7 +113,7 @@ border: none;
        </rect>
       </property>
       <property name="title">
-       <string>Ajout</string>
+       <string>Ajouter</string>
       </property>
       <widget class="QLineEdit" name="le_id_f">
        <property name="geometry">
@@ -124,6 +124,16 @@ border: none;
          <height>22</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit
+{
+ border-width: 3px;
+border-style: solid;
+border-color: #ccfff0;
+  border-radius: 10px;
+padding:0 8;
+}</string>
+       </property>
       </widget>
       <widget class="QLineEdit" name="le_date_f">
        <property name="geometry">
@@ -131,7 +141,7 @@ border: none;
          <x>210</x>
          <y>220</y>
          <width>191</width>
-         <height>22</height>
+         <height>21</height>
         </rect>
        </property>
       </widget>
@@ -193,6 +203,19 @@ border: none;
          <height>28</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+border-width : 1px;
+border-style : outset;
+border-color:rgb(60,170,153);
+}
+QPushButton:hover {
+color:#fff;
+background:#24a0ed;
+border: none;
+}
+</string>
+       </property>
        <property name="text">
         <string>Ajouter</string>
        </property>
@@ -216,11 +239,11 @@ border: none;
      <attribute name="title">
       <string>Supprimer une facture</string>
      </attribute>
-     <widget class="QToolButton" name="toolButton_10">
+     <widget class="QToolButton" name="supp">
       <property name="geometry">
        <rect>
-        <x>260</x>
-        <y>240</y>
+        <x>240</x>
+        <y>290</y>
         <width>101</width>
         <height>31</height>
        </rect>
@@ -229,6 +252,46 @@ border: none;
        <string>Supprimer</string>
       </property>
      </widget>
+     <widget class="QLineEdit" name="le_supp_f">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>250</y>
+        <width>261</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>140</y>
+        <width>161</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_4">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>100</y>
+        <width>491</width>
+        <height>261</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Supprimer</string>
+      </property>
+     </widget>
+     <zorder>groupBox_4</zorder>
+     <zorder>supp</zorder>
+     <zorder>le_supp_f</zorder>
+     <zorder>label_5</zorder>
     </widget>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">

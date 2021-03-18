@@ -53,3 +53,10 @@ QSqlQueryModel *Facture::afficher(){
 
           return model;
 }
+bool Facture::supprimer(int id_f){
+    QSqlQuery query;
+
+    query.prepare("DELETE FROM FACTURES WHERE ID_F = :id_f ");
+    query.bindValue(":id_f", id_f);
+    return    query.exec();
+}
