@@ -60,3 +60,13 @@ bool Facture::supprimer(int id_f){
     query.bindValue(":id_f", id_f);
     return    query.exec();
 }
+bool Facture::modifier(int id_f,QString date_f,QString ttc_f)
+{
+    QSqlQuery query;
+    query.prepare("UPDATE FACTURES SET date_f= :date_f,ttc_f = :ttc_f WHERE id_f= :id_f ");
+    query.bindValue(":id_f",id_f);
+    query.bindValue(":date_f",date_f);
+    query.bindValue(":ttc_f",ttc_f);
+    return    query.exec();
+}
+

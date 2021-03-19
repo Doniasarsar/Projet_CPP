@@ -28,6 +28,8 @@ private slots:
 
     void on_supp_clicked();
 
+    void on_pb_modifier_clicked();
+
 private:
     Ui::MainWindow *ui;
     Facture Ftemp;
