@@ -20,6 +20,10 @@ public:
     QSqlQueryModel* afficher();
     bool supprimer(int);
     bool modifier(int,QString,QString);
+    QSqlQueryModel * rechercher(QString);
+    QSqlQueryModel * tri();
+    QStringList recherche_id();
+    Facture search_id(int id_f);
 
 
 private:

@@ -2,6 +2,7 @@
 #include <QSqlQuery>
 #include <QDebug>
 #include <QObject>
+#include <QTableView>
 
 Facture::Facture()
 {
@@ -49,8 +50,7 @@ QSqlQueryModel *Facture::afficher(){
           model->setQuery("SELECT * FROM FACTURES");
           model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
           model->setHeaderData(1, Qt::Horizontal, QObject::tr("Date de facture"));
-          model->setHeaderData(2, Qt::Horizontal, QObject::tr("Total TTC"));          
-
+          model->setHeaderData(2, Qt::Horizontal, QObject::tr("Total TTC"));
           return model;
 }
 bool Facture::supprimer(int id_f){
@@ -68,5 +68,57 @@ bool Facture::modifier(int id_f,QString date_f,QString ttc_f)
     query.bindValue(":date_f",date_f);
     query.bindValue(":ttc_f",ttc_f);
     return    query.exec();
+}
+QSqlQueryModel * Facture::rechercher(QString a)
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    QSqlQuery query;
+    query.prepare("SELECT * FROM FACTURES where ID_F like '"+a+"' ||'%' OR DATE_F like '"+a+"' ||'%' OR TTC_F like '"+a+"' ||'%'");
+    query.bindValue(":id",a);
+    query.exec();
+    model->setQuery(query);
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Date de facture"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Total TTC"));
+    return model;
+}
+QSqlQueryModel * Facture::tri()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("SELECT * FROM FACTURES ORDER BY ID_F");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Date de facture"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Total TTC"));
+    return model;
+}
+
+QStringList Facture::recherche_id(){
+    QSqlQuery query;
+    query.prepare("select * from FACTURES");
+    query.exec();
+    QStringList list;
+    while(query.next()){
+        list.append(query.value(0).toString());
+    }
+
+    return list;
+
+}
+
+Facture Facture::search_id(int id_f){
+    QSqlQuery query;
+    query.prepare("select *from FACTURES where ID_F=:id_f");
+    query.bindValue(":ID_F",id_f);
+    query.exec();
+    Facture p;
+    while(query.next()){
+        p.setid_f(query.value(0).toInt());
+        p.setdate_f(query.value(1).toString());
+        p.setttc_f(query.value(2).toString());
+
+    }
+
+
+    return p;
 }
 

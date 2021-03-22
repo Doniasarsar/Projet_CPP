@@ -17,17 +17,55 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>190</x>
       <y>20</y>
-      <width>601</width>
+      <width>621</width>
       <height>521</height>
      </rect>
     </property>
     <property name="toolTip">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
+    <property name="styleSheet">
+     <string notr="true">#QWidget {
+
+}
+QTabWidget::pane { /* The tab widget frame */
+border-top: 5px  ;
+}
+QTabWidget::tab-bar {
+left: 0px; /* move to the right by 5px */
+}
+/* Style the tab using the tab sub-control. Note that it reads QTabBar _not_ QTabWidget */
+QTabBar::tab {
+background: #FFFFFF;
+border: 2px  ;
+border-bottom-color: ; /* same as the pane color */
+border-top-left-radius: 7px;
+border-top-right-radius: 7px;
+min-width: 145px;
+padding: 4px;
+color: black;
+font-size:13px;
+font-family:Arial, Helvetica, sans-serif;
+}
+QTabBar::tab:selected, QTabBar::tab:hover {
+background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #DCDCDC, stop: 0.4 #C0C0C0, stop: 0.5 #A9A9A9, stop: 1.0 #A9A9A9);
+}
+QTabBar::tab:selected {
+border-color: #9B9B9B;
+border-bottom-color: #FFD700; /* same as pane color */
+color: #FFFFFF;
+font-size:15px;
+font-family:Arial, Helvetica, sans-serif;
+}
+QTabBar::tab:!selected {
+margin-top: 2px; /* make non-selected tabs look smaller */
+
+}</string>
+    </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
@@ -51,8 +89,8 @@
        </property>
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>160</y>
+         <x>90</x>
+         <y>180</y>
          <width>461</width>
          <height>241</height>
         </rect>
@@ -80,9 +118,9 @@ padding:0 5;
        </property>
        <property name="geometry">
         <rect>
-         <x>390</x>
-         <y>120</y>
-         <width>100</width>
+         <x>0</x>
+         <y>200</y>
+         <width>84</width>
          <height>31</height>
         </rect>
        </property>
@@ -96,33 +134,36 @@ padding:0 5;
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
-background: #FFFFFF;
-border: 2px solid #FFD700;
-border-bottom-color: #FFD700; /* same as the pane color */
+background: #dfe3ee;
+border: 2px solid #dfe3ee;
+border-bottom-color: #aaa5a5; /* same as the pane color */
 border-top-left-radius: 7px;
 border-top-right-radius: 7px;
 min-width: 80px;
-padding: 8px;
-color: #696969;
+border-radius: 8px;
+color: black;
 font-size:12px;
 font-family:Arial, Helvetica, sans-serif;
+
+
 }
 QPushButton:hover {
 color:#fff;
-background:#FFD700;
+background:#8b9dc3;
 border: none;
+
 }
 </string>
        </property>
        <property name="text">
-        <string>Actualiser</string>
+        <string>Trier</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_10">
        <property name="geometry">
         <rect>
-         <x>210</x>
-         <y>30</y>
+         <x>230</x>
+         <y>40</y>
          <width>161</width>
          <height>81</height>
         </rect>
@@ -134,8 +175,8 @@ border: none;
       <widget class="QLineEdit" name="lineEdit">
        <property name="geometry">
         <rect>
-         <x>110</x>
-         <y>130</y>
+         <x>90</x>
+         <y>150</y>
          <width>151</width>
          <height>22</height>
         </rect>
@@ -153,18 +194,102 @@ padding:0 8;
        <property name="text">
         <string/>
        </property>
+       <property name="placeholderText">
+        <string>Rechercher ...</string>
+       </property>
       </widget>
-      <widget class="QLabel" name="label_11">
+      <widget class="QPushButton" name="pdf">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>125</y>
-         <width>71</width>
+         <x>0</x>
+         <y>300</y>
+         <width>84</width>
          <height>31</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+background: #dfe3ee;
+border: 2px solid #dfe3ee;
+border-bottom-color: #aaa5a5; /* same as the pane color */
+border-top-left-radius: 7px;
+border-top-right-radius: 7px;
+min-width: 80px;
+border-radius: 8px;
+color: black;
+font-size:12px;
+font-family:Arial, Helvetica, sans-serif;
+
+
+}
+QPushButton:hover {
+color:#fff;
+background:#8b9dc3;
+border: none;
+
+}
+</string>
+       </property>
        <property name="text">
-        <string>ID Facture :</string>
+        <string>PDF</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="impr">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>250</y>
+         <width>84</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+background: #dfe3ee;
+border: 2px solid #dfe3ee;
+border-bottom-color: #aaa5a5; /* same as the pane color */
+border-top-left-radius: 7px;
+border-top-right-radius: 7px;
+min-width: 80px;
+border-radius: 8px;
+color: black;
+font-size:12px;
+font-family:Arial, Helvetica, sans-serif;
+
+
+}
+QPushButton:hover {
+color:#fff;
+background:#8b9dc3;
+border: none;
+
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Imprimer</string>
        </property>
       </widget>
      </widget>
@@ -295,21 +420,24 @@ padding:0 8;
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
-background: #FFFFFF;
-border: 2px solid #FFD700;
-border-bottom-color: #FFD700; /* same as the pane color */
+background: #dfe3ee;
+border: 2px solid #dfe3ee;
+border-bottom-color: #aaa5a5; /* same as the pane color */
 border-top-left-radius: 7px;
 border-top-right-radius: 7px;
 min-width: 80px;
-padding: 8px;
-color: #696969;
+border-radius: 8px;
+color: black;
 font-size:12px;
 font-family:Arial, Helvetica, sans-serif;
+
+
 }
 QPushButton:hover {
 color:#fff;
-background:#FFD700;
+background:#8b9dc3;
 border: none;
+
 }
 </string>
        </property>
@@ -348,26 +476,6 @@ border: none;
       <property name="title">
        <string>Modifier</string>
       </property>
-      <widget class="QLineEdit" name="modif_id_f">
-       <property name="geometry">
-        <rect>
-         <x>210</x>
-         <y>170</y>
-         <width>191</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QLineEdit
-{
- border-width: 1px;
-border-style: solid;
-border-color: black;
-  border-radius: 10px;
-padding:0 8;
-}</string>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="modif_date_f">
        <property name="geometry">
         <rect>
@@ -437,7 +545,7 @@ padding:0 8;
       <widget class="QLabel" name="label_8">
        <property name="geometry">
         <rect>
-         <x>120</x>
+         <x>110</x>
          <y>270</y>
          <width>81</width>
          <height>16</height>
@@ -458,21 +566,24 @@ padding:0 8;
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
-background: #FFFFFF;
-border: 2px solid #FFD700;
-border-bottom-color: #FFD700; /* same as the pane color */
+background: #dfe3ee;
+border: 2px solid #dfe3ee;
+border-bottom-color: #aaa5a5; /* same as the pane color */
 border-top-left-radius: 7px;
 border-top-right-radius: 7px;
 min-width: 80px;
-padding: 8px;
-color: #696969;
+border-radius: 8px;
+color: black;
 font-size:12px;
 font-family:Arial, Helvetica, sans-serif;
+
+
 }
 QPushButton:hover {
 color:#fff;
-background:#FFD700;
+background:#8b9dc3;
 border: none;
+
 }
 </string>
        </property>
@@ -493,32 +604,22 @@ border: none;
         <string/>
        </property>
       </widget>
+      <widget class="QComboBox" name="modif_box">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>170</y>
+         <width>121</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
       <string>Supprimer une facture</string>
      </attribute>
-     <widget class="QLineEdit" name="le_supp_f">
-      <property name="geometry">
-       <rect>
-        <x>160</x>
-        <y>250</y>
-        <width>261</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QLineEdit
-{
- border-width: 1px;
-border-style: solid;
-border-color: black;
-  border-radius: 10px;
-padding:0 8;
-}</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
@@ -547,7 +648,7 @@ padding:0 8;
       <widget class="QPushButton" name="supp">
        <property name="geometry">
         <rect>
-         <x>200</x>
+         <x>243</x>
          <y>190</y>
          <width>101</width>
          <height>31</height>
@@ -555,21 +656,24 @@ padding:0 8;
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
-background: #FFFFFF;
-border: 2px solid #FFD700;
-border-bottom-color: #FFD700; /* same as the pane color */
+background: #dfe3ee;
+border: 2px solid #dfe3ee;
+border-bottom-color: #aaa5a5; /* same as the pane color */
 border-top-left-radius: 7px;
 border-top-right-radius: 7px;
 min-width: 80px;
-padding: 8px;
-color: #696969;
+border-radius: 8px;
+color: black;
 font-size:12px;
 font-family:Arial, Helvetica, sans-serif;
+
+
 }
 QPushButton:hover {
 color:#fff;
-background:#FFD700;
+background:#8b9dc3;
 border: none;
+
 }
 </string>
        </property>
@@ -577,9 +681,31 @@ border: none;
         <string>Supprimer</string>
        </property>
       </widget>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>150</y>
+         <width>71</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Id Facteur :</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="supr_box">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>150</y>
+         <width>111</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
      </widget>
      <zorder>groupBox_4</zorder>
-     <zorder>le_supp_f</zorder>
      <zorder>label_5</zorder>
     </widget>
    </widget>
@@ -604,6 +730,29 @@ border: none;
        <height>31</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">QToolButton {
+background: #dfe3ee;
+border: 2px solid #dfe3ee;
+border-bottom-color: #aaa5a5; /* same as the pane color */
+border-top-left-radius: 7px;
+border-top-right-radius: 7px;
+min-width: 80px;
+border-radius: 8px;
+color: black;
+font-size:12px;
+font-family:Arial, Helvetica, sans-serif;
+
+
+}
+QToolButton:hover {
+color:#fff;
+background:#8b9dc3;
+border: none;
+
+}
+</string>
+     </property>
      <property name="text">
       <string>Home</string>
      </property>
@@ -617,6 +766,29 @@ border: none;
        <height>31</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">QToolButton {
+background: #dfe3ee;
+border: 2px solid #dfe3ee;
+border-bottom-color: #aaa5a5; /* same as the pane color */
+border-top-left-radius: 7px;
+border-top-right-radius: 7px;
+min-width: 80px;
+border-radius: 8px;
+color: black;
+font-size:12px;
+font-family:Arial, Helvetica, sans-serif;
+
+
+}
+QToolButton:hover {
+color:#fff;
+background:#8b9dc3;
+border: none;
+
+}
+</string>
+     </property>
      <property name="text">
       <string>Log out</string>
      </property>
@@ -629,6 +801,29 @@ border: none;
        <width>131</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QToolButton {
+background: #dfe3ee;
+border: 2px solid #dfe3ee;
+border-bottom-color: #aaa5a5; /* same as the pane color */
+border-top-left-radius: 7px;
+border-top-right-radius: 7px;
+min-width: 80px;
+border-radius: 8px;
+color: black;
+font-size:12px;
+font-family:Arial, Helvetica, sans-serif;
+
+
+}
+QToolButton:hover {
+color:#fff;
+background:#8b9dc3;
+border: none;
+
+}
+</string>
      </property>
      <property name="text">
       <string>Settings</string>
